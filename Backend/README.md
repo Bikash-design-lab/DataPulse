@@ -2,6 +2,9 @@
 
 A Node.js-based backend API for the Data Monitoring Dashboard, providing endpoints for user authentication and log data management. Built with Express.js and MongoDB, it supports secure user registration, login, and retrieval of paginated log data with filtering capabilities.
 
+Backend deploys to Render.com, with environment variables for configuration.
+URL:https://datapulse-pwoa.onrender.com
+
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
