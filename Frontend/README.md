@@ -1,12 +1,26 @@
-# React + Vite
+# Data Monitoring Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React-based frontend for user authentication and log data monitoring with a responsive dashboard, filtering, and visualization.
 
-Currently, two official plugins are available:
+## Features
+- **Authentication**: Sign-up, sign-in, logout with role-based access (Admin/Employee) using JWT in `localStorage`.
+- **Log Monitoring**: Paginated table with logs (interface, integration key, status, message, timestamp, severity).
+- **Filtering/Search**: Real-time search (debounced), status filter (Success, Failure, Pending, Warning), advanced filters for interface/integration key.
+- **Visualization**: Bar chart for log status counts using Chart.js.
+- **Responsive**: Mobile-friendly with Tailwind CSS.
+- **Error/Loading**: Spinners, error messages, and "no more data" indicator.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+- React (`^19.1.0`), React Router (`^7.7.1`), React Hook Form (`^7.62.0`)
+- Chart.js (`^4.5.0`), `react-chartjs-2` (`^5.3.0`)
+- Axios (`^1.11.0`), `react-infinite-scroll-component` (`^6.1.0`)
+- Tailwind CSS (`^3.4.17`), Vite (`^7.0.4`), ESLint (`^9.30.1`)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Setup
+1. Clone: `git clone <repository-url> && cd <frontend-folder>`
+2. Install: `npm install`
+3. Add `.env`:
+   ```env
+   VITE_BASE_URL=http://localhost:3000 // backedend API URL
+   
+   ```
