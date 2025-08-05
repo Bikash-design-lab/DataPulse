@@ -22,7 +22,7 @@ const { logRoute } = require("./Routes/log.routes")
 app.use(express.json());
 app.use(cors({
     origin: [
-        "https://peaceful-beignet-5e4f5a.netlify.app/",
+        "https://peaceful-beignet-5e4f5a.netlify.app",
         "http://localhost:5173"
     ],
     credentials: true
