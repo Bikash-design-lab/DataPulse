@@ -26,19 +26,36 @@ logRoute.get("/data", async (req, res) => {
 });
 
 
+// logRoute.get("/all", async (req, res) => {
+//     try {
+//         const sucess_data = await LogModel.find({ status: "Success" }).count()
+//         const all_data = await LogModel.find().countDocuments()
+//         const failure_data = await LogModel.find({ status: "Failure" }).count()
+//         return res.status(200).json({ message: "Logged data", failure_data, all_data, sucess_data });
+//     } catch (error) {
+//         console.error("Error fetching logs:", error);
+//         return res.status(500).json({ message: "Something went wrong." });
+//     }
+// });
+
+
 logRoute.get("/all", async (req, res) => {
     try {
-        const sucess_data = await LogModel.find({ status: "Success" }).count()
-        const all_data = await LogModel.find().countDocuments()
-        const failure_data = await LogModel.find({ status: "Failure" }).count()
-        return res.status(200).json({ message: "Logged data", failure_data, all_data, sucess_data });
+        const success_data = await LogModel.countDocuments({ status: "Success" });
+        const failure_data = await LogModel.countDocuments({ status: "Failure" });
+        const all_data = await LogModel.estimatedDocumentCount();
+
+        return res.status(200).json({
+            message: "Logged data",
+            success_data,
+            failure_data,
+            all_data
+        });
     } catch (error) {
         console.error("Error fetching logs:", error);
         return res.status(500).json({ message: "Something went wrong." });
     }
 });
-
-
 
 
 
