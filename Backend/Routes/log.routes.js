@@ -28,9 +28,9 @@ logRoute.get("/data", async (req, res) => {
 
 logRoute.get("/all", async (req, res) => {
     try {
-        const sucess_data = await LogModel.find({}, { status: "Success" }).countDocuments()
+        const sucess_data = await LogModel.find({ status: "Success" }).count()
         const all_data = await LogModel.find().countDocuments()
-        const failure_data = await LogModel.find({}, { status: "Failure" }).countDocuments()
+        const failure_data = await LogModel.find({ status: "Failure" }).count()
         return res.status(200).json({ message: "Logged data", failure_data, all_data, sucess_data });
     } catch (error) {
         console.error("Error fetching logs:", error);
