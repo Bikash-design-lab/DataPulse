@@ -35,9 +35,10 @@ const HomePage = () => {
         const resp = await fetch(`${URL}?${params}`);
         if (!resp.ok) throw new Error('Network error');
         const data = await resp.json();
+        // console.log(data,"data from api")
         setStats({
           totalExecutions: data.all_data || 0,
-          successCount: data.sucess_data || 0,
+          successCount: data.success_data || 0,
           failureCount: data.failure_data || 0,
         });
         setLoading(false);
